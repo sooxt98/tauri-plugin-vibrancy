@@ -1,0 +1,35 @@
+[package]
+name = "tauri-plugin-vibrancy"
+description = "Add vibancy/blur/acrylic effects to your tauri window."
+authors = [ "Sheldon Soo <hello@sooxt98.spacce>" ]
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.56"
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/soooxt98/tauri-plugin-vibrancy"
+documentation = "https://docs.rs/tauri-plugin-vibrancy"
+keywords = [ "vibrancy", "acrylic", "blur", "tauri", "gui", "plugin", "tauri-plugin" ]
+categories = [ "gui" ]
+
+
+[dependencies]
+tauri = { version = "1.0.0-beta.8", features = ["api-all"] }
+
+[dependencies.windows]
+  version = "0.28.0"
+  features = [
+  "alloc",
+  "Win32_Foundation",
+  "Win32_System_LibraryLoader",
+  "Win32_System_SystemInformation",
+  "Win32_Graphics_Gdi",
+  "Win32_Graphics_Dwm",
+  "Win32_UI_WindowsAndMessaging"
+]
+
+[target."cfg(any(target_os = \"ios\", target_os = \"macos\"))".dependencies]
+cocoa = "0.24.0"
+block = "0.1.6"
+core-graphics = "0.22.3"
+objc = "0.2.7"
